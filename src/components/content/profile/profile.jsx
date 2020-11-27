@@ -12,7 +12,8 @@ const Profile = (props) => {
     let postRef = React.createRef();
 
     let addPostClick = () => {
-        props.dispatch(addPostCreator());
+        if (postRef.current.value)
+            props.dispatch(addPostCreator());
     }
 
     let onPostChange = () => {

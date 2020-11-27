@@ -2,8 +2,18 @@ const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"; // вызывается н�
 const ADD_POST = "ADD-POST"; // вызывается при нажатии на кнопку отправить
 
 
-const profileReducer = (state, action) => {
-    switch(action.type) {
+let initializeState = {
+    posts: [
+        {id: 3, post: "Я достиг 10 уровня в Тюряге"},
+        {id: 2, post: "Я достиг 5 уровня в Тюряге"},
+        {id: 1, post: "Приглашаю всех поиграть в Тюрягу!"},
+        {id: 0, post: "Здорова, мужики!"}
+    ],
+    newPostText: ""
+}
+
+const profileReducer = (state = initializeState, action) => {
+    switch (action.type) {
         case UPDATE_NEW_POST_TEXT:
             state.newPostText = action.text;
             return state;

@@ -1,5 +1,5 @@
 import './index.css';
-import store from './bll/state.js';
+import store from './bll/redux-store.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -17,7 +17,12 @@ let renderAll = (state) => {
 
 renderAll(store.getState());
 
-store.subscribe(renderAll);
+// при использовании паттерна "Наблюдатель", функция renderAll не получает state,
+// поэтому необходимо передать state "вручную"
+store.subscribe(() => {
+    let state = store.getState();
+    renderAll(state);
+});
 
 
 
