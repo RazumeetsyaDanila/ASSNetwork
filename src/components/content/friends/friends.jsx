@@ -4,9 +4,9 @@ import './friends.css'
 const Friends = () => {
     return (
         <div className="friends">
-            <NavLink to="/users">
-                <div className="navbar__navbar-item2">Найти друзей</div>
-            </NavLink>
+            <div>
+                <NavLink to="/users" className="navbar__navbar-item2">Найти друзей</NavLink>
+            </div>
         </div>
     )
 }

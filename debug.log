@@ -3,3 +3,4 @@
 [1128/120601.533:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
 [1128/194819.453:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\danil\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\bef5f78f-627c-4c7e-90d9-828263227d9d: Системе не удается найти указанный путь. (0x3)
 [1128/194819.502:ERROR:http_transport_win.cc(276)] WinHttpSendRequest: Операция успешно завершена. (0x0)
+[1201/120553.392:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)

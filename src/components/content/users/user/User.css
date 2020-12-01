@@ -1,0 +1,21 @@
+.user__follow-button{
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    font-family: Oswald;
+    background-color: #918091;
+    font-size: 14px;
+}
+
+.user__follow-button:hover{
+    background-color: #493e49;
+    color: #918091;
+    cursor: pointer;
+
+}
+
+.user__follow-button:focus{
+    outline: none;
+}

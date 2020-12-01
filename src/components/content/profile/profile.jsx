@@ -8,15 +8,13 @@ const Profile = (props) => {
 
     let postsComponentsArray = props.posts.map(p => <Post key={p.id} id={p.id} post={p.post}/>);
 
-    let postRef = React.createRef();
-
     let addPostClick = () => {
-        if (postRef.current.value)
+        if (props.newPostText)
             props.addPostClick();
     }
 
-    let onPostChange = () => {
-        let inpText = postRef.current.value;
+    let onPostChange = (e) => {
+        let inpText = e.target.value;
         props.onPostChange(inpText);
     }
 
@@ -36,7 +34,7 @@ const Profile = (props) => {
             </div>
 
             <div className="profile__input">
-                <input ref={postRef} type="text" className="input__textarea" onChange={onPostChange}
+                <input type="text" className="input__textarea" onChange={onPostChange}
                        value={props.newPostText} placeholder="Расскажите, что у Вас нового?"/>
                 <button className="input__button" onClick={addPostClick}> Опубликовать</button>
             </div>

@@ -9,15 +9,13 @@ const Dialogs = (props) => {
         .map(m => <div className={"messages__message messages__message_position_" + m.pos}
                        key={m.id}> {m.message} </div>);
 
-    let messageRef = React.createRef();
-
     let addMessageClick = () => {
-        if (messageRef.current.value)
+        if (props.newMessageText)
             props.addMessageClick();
     }
 
-    let onMessageChange = () => {
-        let inpText = messageRef.current.value;
+    let onMessageChange = (e) => {
+        let inpText = e.target.value;
         props.onMessageChange(inpText);
     }
 
@@ -30,7 +28,7 @@ const Dialogs = (props) => {
                 {messagesDivArray}
             </div>
             <div className="dialogs__input">
-                <div><input ref={messageRef} type="text" className="input__textarea2" onChange={onMessageChange}
+                <div><input type="text" className="input__textarea2" onChange={onMessageChange}
                             value={props.newMessageText} placeholder="Написать сообщение"/></div>
                 <button className="input__button2" onClick={addMessageClick}>Отправить</button>
             </div>
