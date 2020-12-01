@@ -7,9 +7,9 @@ import Content from './components/content/content';
 function App(props) {
   return (
     <div className="app-wrapper">
-      <Header />
-      <Navbar />
-      <Content state={props.state} dispatch = {props.dispatch} />
+      <Header/>
+      <Navbar/>
+      <Content/>
     </div>
   );
 }

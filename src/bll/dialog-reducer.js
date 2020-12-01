@@ -23,20 +23,25 @@ let initializeState = {
 }
 
 const dialogReducer = (state = initializeState, action) => {
+    //взрыв мозга:
+    //делаем поверхностную копию объекта state,
+    //затем глубокую копию тех подобъектов, которые будем менять и присваиваем им новые значения
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.text;
-            return state;
+            return {
+                ...state,
+                newMessageText: action.text
+            }
 
         case ADD_MESSAGE:
-            let newMessage = {
-                id: state.messages[state.messages.length - 1].id + 1,
-                message: state.newMessageText,
-                pos: "right"
+            return {
+                ...state,
+                messages: [...state.messages,
+                    {id: state.messages[state.messages.length - 1].id + 1,
+                    message: state.newMessageText,
+                    pos: "right"}],
+                newMessageText: ""
             }
-            state.messages.push(newMessage);
-            state.newMessageText = "";
-            return state;
 
         default:
             return state;

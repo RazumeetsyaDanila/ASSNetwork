@@ -13,19 +13,25 @@ let initializeState = {
 }
 
 const profileReducer = (state = initializeState, action) => {
+    //взрыв мозга:
+    //делаем поверхностную копию объекта state,
+    //затем глубокую копию тех подобъектов, которые будем менять и присваиваем им новые значения
     switch (action.type) {
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.text;
-            return state;
+            return {
+                ...state,
+                newPostText: action.text
+            }
 
         case ADD_POST:
-            let newPost = {
-                id: state.posts[0].id + 1,
-                post: state.newPostText
+            return {
+                ...state,
+                posts: [{
+                    id: state.posts[0].id + 1,
+                    post: state.newPostText
+                }, ...state.posts],
+                newPostText: ""
             }
-            state.posts.unshift(newPost);
-            state.newPostText = "";
-            return state;
 
         default:
             return state;

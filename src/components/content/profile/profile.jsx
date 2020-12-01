@@ -2,7 +2,6 @@ import React from 'react';
 import './profile.css';
 import avatar from '../../../img/avatar(middle_s2).png';
 import Post from './post/post'
-import {addPostCreator, updateNewPostTextCreator} from "../../../bll/profile-reducer";
 
 
 const Profile = (props) => {
@@ -13,12 +12,12 @@ const Profile = (props) => {
 
     let addPostClick = () => {
         if (postRef.current.value)
-            props.dispatch(addPostCreator());
+            props.addPostClick();
     }
 
     let onPostChange = () => {
         let inpText = postRef.current.value;
-        props.dispatch(updateNewPostTextCreator(inpText));
+        props.onPostChange(inpText);
     }
 
     return (
@@ -26,15 +25,12 @@ const Profile = (props) => {
             <div className="profile__avatar">
                 <img src={avatar} alt="Аватар"/>
             </div>
-
             <div className="profile__info">
                 Описание профиля
             </div>
-
             <div className="profile__change-avatar">
                 Загрузить аватар
             </div>
-
             <div className="profile__posts">
                 {postsComponentsArray}
             </div>

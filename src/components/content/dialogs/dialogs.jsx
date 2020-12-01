@@ -1,6 +1,6 @@
 import React from 'react';
-import './dialogs.css'
-import {addMessageCreator, updateNewMessageTextCreator} from "../../../bll/dialog-reducer";
+import './dialogs.css';
+
 
 const Dialogs = (props) => {
 
@@ -13,12 +13,12 @@ const Dialogs = (props) => {
 
     let addMessageClick = () => {
         if (messageRef.current.value)
-            props.dispatch(addMessageCreator());
+            props.addMessageClick();
     }
 
     let onMessageChange = () => {
         let inpText = messageRef.current.value;
-        props.dispatch(updateNewMessageTextCreator(inpText));
+        props.onMessageChange(inpText);
     }
 
     return (
@@ -26,15 +26,13 @@ const Dialogs = (props) => {
             <div className="dialogs__dialog-names">
                 {dialogsDivArray}
             </div>
-
             <div className="dialogs__messages">
                 {messagesDivArray}
             </div>
-
             <div className="dialogs__input">
                 <div><input ref={messageRef} type="text" className="input__textarea2" onChange={onMessageChange}
                             value={props.newMessageText} placeholder="Написать сообщение"/></div>
-                <button className="input__button2" onClick={addMessageClick}> Отправить</button>
+                <button className="input__button2" onClick={addMessageClick}>Отправить</button>
             </div>
         </div>
     )

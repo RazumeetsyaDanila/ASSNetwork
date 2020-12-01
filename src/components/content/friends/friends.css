@@ -1,0 +1,13 @@
+.navbar__navbar-item2{
+    color: #000000;
+    padding: 4px;
+    font-family: oswald;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+.navbar__navbar-item2:hover{
+    color: #f4a300;
+    cursor: pointer;
+}
